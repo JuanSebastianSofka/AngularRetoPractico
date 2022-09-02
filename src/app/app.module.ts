@@ -10,6 +10,7 @@ import { MenuComponent } from './components/principal/menu/menu.component';
 import { LayoutComponent } from './components/principal/layout/layout.component';
 import { FooterComponent } from './components/principal/footer/footer.component';
 import { PersonajesComponent } from './components/personajes/personajes.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PersonajesComponent } from './components/personajes/personajes.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
