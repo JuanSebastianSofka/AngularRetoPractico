@@ -11,6 +11,7 @@ import { LayoutComponent } from './components/principal/layout/layout.component'
 import { FooterComponent } from './components/principal/footer/footer.component';
 import { PersonajesComponent } from './components/personajes/personajes.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
