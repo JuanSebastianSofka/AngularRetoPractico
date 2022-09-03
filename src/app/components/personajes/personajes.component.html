@@ -1,1 +1,27 @@
-<p>personajes works!</p>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<h1>Your Favorite Characters</h1>
+
+
+
+<body>
+    <div>
+        <form [formGroup]="Formulario" (ngSubmit)="onSendForm($event); resetForm()">           
+            <input formControlName='character' type="text" id="fname" name="name" placeholder="Character Name" >
+            <br>
+            <br>            
+            <input type="text" id="fname" name="picture" placeholder="Pircture Url" formControlName="urlPic"><br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+
+
+<div *ngFor="let char of favoriteCharacters, let i = index">
+    <li>{{char}} <img src="{{pictureUrl[i]}}" width="250" height="250"></li>
+</div>
+
+<hr>

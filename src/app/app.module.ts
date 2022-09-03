@@ -11,7 +11,9 @@ import { LayoutComponent } from './components/principal/layout/layout.component'
 import { FooterComponent } from './components/principal/footer/footer.component';
 import { PersonajesComponent } from './components/personajes/personajes.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
