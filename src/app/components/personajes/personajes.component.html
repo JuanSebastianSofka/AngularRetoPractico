@@ -7,10 +7,10 @@
 
 <body>
     <div>
-        <form [formGroup]="Formulario" (ngSubmit)="onSendForm($event); resetForm()">           
-            <input formControlName='character' type="text" id="fname" name="name" placeholder="Character Name" >
+        <form [formGroup]="Formulario" (ngSubmit)="onSendForm($event)">
+            <input formControlName='character' type="text" id="fname" name="name" placeholder="Character Name">
             <br>
-            <br>            
+            <br>
             <input type="text" id="fname" name="picture" placeholder="Pircture Url" formControlName="urlPic"><br>
             <br>
             <input type="submit" value="Submit">
@@ -18,10 +18,20 @@
     </div>
 </body>
 
-
-
-<div *ngFor="let char of favoriteCharacters, let i = index">
-    <li>{{char}} <img src="{{pictureUrl[i]}}" width="250" height="250"></li>
-</div>
-
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Picture</th>
+        </tr>
+    </thead>
+</table>
+<table *ngFor="let char of favoriteCharacters, let i = index">
+    <tbody>
+        <tr>
+            <td>{{char}}</td>
+            <td><img src="{{pictureUrl[i]}}" width="50%" height="50%"></td>
+        </tr>
+    </tbody>
+</table>
 <hr>

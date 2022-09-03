@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-personajes',
@@ -13,9 +15,9 @@ export class PersonajesComponent implements OnInit {
   constructor() {
     this.Formulario = new FormGroup({
       character: new FormControl(''),
-      urlPic: new FormControl('')    
+      urlPic: new FormControl('')
     });
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -23,26 +25,44 @@ export class PersonajesComponent implements OnInit {
   defaultChar: String = ''
   defaultPic: String = ''
 
-  
+
   favoriteCharacters: String[] = []
-  pictureUrl: String[] = []  
+  pictureUrl: String[] = []
 
   onSendForm = (event: any) => {
-
-    if(this.favoriteCharacters.length>8){
-      return alert('You cant enter more characters')
-    }
-
-    alert('se ha dado click')
     event.preventDefault();
 
-    this.favoriteCharacters.push(event.target.name.value)
-    this.pictureUrl.push(event.target.picture.value) 
+    if(event.target.name.value !== "" && event.target.picture.value !== "" && this.favoriteCharacters.length<8){
+      this.favoriteCharacters.push(event.target.name.value)
+      this.pictureUrl.push(event.target.picture.value)
+  
+      this.Formulario.reset()
+  
+      Swal.fire({
+        title: "Successfull submit",
+        text: "You have submited a new character",
+        icon: 'success'
+      })
+    }else if(event.target.name.value === "" && event.target.picture.value === ""){
+      Swal.fire({
+        title: "Something went wrong",
+        text: "Please add information in both fields",
+        icon: 'error'
+      })     
+      this.Formulario.reset() 
+    }else {
+      Swal.fire({
+        title: "Something went wrong",
+        text: "You cant enter more than 8 character",
+        icon: 'error'
+      })
+      this.Formulario.reset()
+    }
+
+
+    
+
+    
+    //alert('You have submited a new character')
   }
-
-
-  resetForm() {
-    this.Formulario.reset()
-  }
-
 }
